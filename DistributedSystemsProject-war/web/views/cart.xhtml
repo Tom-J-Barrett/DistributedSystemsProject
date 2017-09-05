@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../templates/BasicPageTemplate.xhtml"
+                xmlns:composites ="http://xmlns.jcp.org/jsf/composite/composites"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <c:forEach items="#{CartController.products}" var="entry">
+                <h:form id="productForm">
+                    <composites:productComponent  name="#{entry.product.productname}" price="#{entry.product.cost}"/>
+                    <h:inputText id="quantityInput" value="#{entry.quantity}" ><f:validateLongRange minimum = "1" maximum = "10000" /></h:inputText> 
+                    <h:commandButton value="Update" actionListener="#{CartController.updateQuantity(entry)}"/>
+                    <h:commandButton value="Delete" actionListener="#{CartController.deleteEntry(entry)}"/>
+                </h:form>
+        </c:forEach>
+        <h:outputText value="Total Cost:" />
+        <h:outputText value="#{CartController.totalCost}" />
+        <h:form>
+            <h:commandButton value="Clear Cart" actionListener="#{CartController.clearCart()}"/>
+            <h:commandButton value="Checkout" actionListener="#{CartController.checkout()}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

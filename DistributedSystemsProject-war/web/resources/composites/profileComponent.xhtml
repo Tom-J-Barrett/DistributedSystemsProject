@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+     <!--This composite component is used for displaying all user profiles. We can therfore use
+         this composite component for every occurance of displaying a users profile despite if 
+         it is the users own profile or another users profile. Attributes are specified for every
+         attribute that will be displayed and outputTexts are specified to display there components.-->
+     <!-- INTERFACES-->
+    <cc:interface>
+    <cc:attribute name="username" />
+    <cc:attribute name="firstname" />
+    <cc:attribute name="surname" />
+    <cc:attribute name="message" />
+    <cc:attribute name="street1" />
+    <cc:attribute name="street2" />
+    <cc:attribute name="city" />
+    <cc:attribute name="county" />
+    <cc:attribute name="country" />
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+    <h:panelGrid id="panel" columns="2" columnClasses="outputText, outputText, outputText, outputText, outputText, outputText, outputText, outputText, outputText">
+        <h:outputLabel>Username: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.username}" />
+        <h:outputLabel>First Name: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.firstname}" />
+        <h:outputLabel>Surname: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.surname}" />
+        <h:outputLabel >Message: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.message}" />
+        <h:outputLabel>Address Street 1: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.street1}" />
+        <h:outputLabel>Street2: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.street2}" />
+        <h:outputLabel>City: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.city}" />
+        <h:outputLabel>County: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.county}" />
+        <h:outputLabel>Country: </h:outputLabel>
+        <h:outputText value="#{cc.attrs.country}" />
+    </h:panelGrid>
+    </cc:implementation>
+</html>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Web Shop</title>
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <f:event type="preRenderView" listener="#{loginController.processUserLoginStatus}" />
+        
+        <div id="registerPanel" >
+            <h:form>
+                <h3>Please enter the details for your new account: </h3>
+                <h:panelGrid columns="2">
+                    <h:outputLabel>Username:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.username}" validatorMessage="Username must be between 3 and 15 characters long"><f:validateLength minimum = "3" maximum = "15" /></h:inputText>
+
+                    <h:outputLabel>Password:</h:outputLabel>
+                    <h:inputSecret value="#{registerPageController.password}" validatorMessage="Password must be between 3 and 15 characters long"><f:validateLength minimum = "3" maximum = "15" /></h:inputSecret>
+                    
+                    <h:outputLabel>First name:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.firstName}" validatorMessage="First name must be between 3 and 15 characters long"><f:validateLength minimum = "3" maximum = "15" /></h:inputText>
+                    
+                    <h:outputLabel>Surname:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.surname}" validatorMessage="Surname must be between 3 and 15 characters long"><f:validateLength minimum = "3" maximum = "15" /></h:inputText>
+                    
+                    <h:outputLabel>Message:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.message}" validatorMessage="Message must be between 3 and 500 characters long"><f:validateLength minimum = "3" maximum = "500" /></h:inputText>
+                    
+                    <h:outputLabel>Address Street 1:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.street1}" validatorMessage="Address Street 1 must be between 3 and 30 characters long"><f:validateLength minimum = "3" maximum = "30" /></h:inputText>
+                    
+                    <h:outputLabel>Address Street 2:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.street2}" validatorMessage="Address Street 2 must be between 3 and 30 characters long"><f:validateLength minimum = "3" maximum = "30" /></h:inputText>
+                    
+                    <h:outputLabel>Town/City:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.city}" validatorMessage="Town/City must be between 3 and 30 characters long"><f:validateLength minimum = "3" maximum = "30" /></h:inputText>
+                    
+                    <h:outputLabel>County/State:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.county}" validatorMessage="County/State must be between 3 and 30 characters long"><f:validateLength minimum = "3" maximum = "30" /></h:inputText>
+                    
+                    <h:outputLabel>Country:</h:outputLabel>
+                    <h:inputText value="#{registerPageController.country}" validatorMessage="Country must be between 3 and 30 characters long"><f:validateLength minimum = "3" maximum = "30" /></h:inputText>
+                    
+                    <h:commandButton value="Submit" binding="#{registerPageController.mybutton}" action="#{registerPageController.validateInformation}" />
+                </h:panelGrid>   
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

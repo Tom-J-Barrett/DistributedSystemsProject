@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!--This composite component is used for displaying a product when you are viewing a list of products 
+        ie. browsing items. We can therfore use this composite component for every occurance of displaying
+        a product in a list format despite if it is for browsing products as a user or browsing through products 
+        as an admin. Attributes are specified for every attribute that will be displayed and outputTexts are 
+        specified to display there components.-->
+    <!-- INTERFACE -->
+    <cc:interface>
+    <cc:attribute name="name" />
+    <cc:attribute name="price" />
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+    <h:panelGrid id="panel" columns="3" columnClasses="outputText, outputText, inputText ">
+        <h:outputText value="#{cc.attrs.name}" />
+        <h:outputText value="#{cc.attrs.price}" />
+    </h:panelGrid>
+    </cc:implementation>
+</html>

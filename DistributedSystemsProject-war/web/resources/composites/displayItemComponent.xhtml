@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <!--This composite component is used for displaying a product when a user clicks into it for more iniformation.
+        We can therfore use this composite component for every occurance of displaying a product and add in 
+        functionality such as an admin being able to update stock and delete produccts in the JSF page. 
+        Attributes are specified for every attribute that will be displayed and outputTexts are specified
+        to display there components.-->
+    <!-- INTERFACE -->
+    <cc:interface> 
+    <cc:attribute name="product_id" />
+    <cc:attribute name="product_name" />
+    <cc:attribute name="product_price" />
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+    <h:panelGrid id="panel" columns="6" >
+        <h:outputLabel value="Product ID: " />
+        <h:outputText value="#{cc.attrs.product_id}" />
+        <h:outputLabel value="Product Name: " />
+        <h:outputText value="#{cc.attrs.product_name}" />
+        <h:outputLabel value="Product Price: " />
+        <h:outputText value="#{cc.attrs.product_price}" />
+    </h:panelGrid>
+    </cc:implementation>
+</html>

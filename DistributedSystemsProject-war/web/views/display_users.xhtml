@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../templates/BasicPageTemplate.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:composites="http://xmlns.jcp.org/jsf/composite/composites"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <f:metadata>
+                <f:viewParam name="userId" value="#{displayUsersController.userId}" />
+                <f:viewParam name="username" value="#{displayUsersController.username}" />
+                <f:viewAction action="#{displayUsersController.populateUsersData}" />
+        </f:metadata>
+        <br />
+        <c:forEach items="#{displayUsersController.users}" var="client">
+            <h:form>
+                <h:link outcome="#{navigationController.profilePage}" >
+                    <f:param name="username" value="#{client.username}" />
+                            
+                    <composites:displayUsersComponent user_id="#{client.clientid}" user_name="#{client.username}" user_message="#{client.message}"/> 
+                </h:link>
+            </h:form>
+        </c:forEach>
+    </ui:define>
+
+</ui:composition>

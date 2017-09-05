@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../templates/BasicPageTemplate.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:composites="http://xmlns.jcp.org/jsf/composite/composites">
+
+    <ui:define name="content">
+        <f:metadata>
+                <f:viewParam name="productId" value="#{displayItemsController.productId}" />
+                <f:viewParam name="productName" value="#{displayItemsController.productName}" />
+
+                <f:viewAction action="#{displayItemsController.populateProductsData}" />
+        </f:metadata>
+        <c:forEach items="#{displayItemsController.inventory}" var="inventory">
+            <h:link  outcome="#{navigationController.productsPage}" >
+                <f:param name="productId" value="#{inventory.productid}" />
+                                  
+                <composites:displayItemComponent product_id="#{inventory.product.productid}" product_name="#{inventory.product.productname}" product_price="#{inventory.product.cost}"/>
+            </h:link>
+        </c:forEach>
+    </ui:define>
+
+</ui:composition>
